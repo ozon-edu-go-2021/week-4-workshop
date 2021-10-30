@@ -33,10 +33,6 @@ test:
 
 .PHONY: generate
 generate:
-	go install \
-		github.com/bufbuild/buf/cmd/buf@latest \
-		github.com/bufbuild/buf/cmd/protoc-gen-buf-breaking@latest \
-		github.com/bufbuild/buf/cmd/protoc-gen-buf-lint@latest
 	$(BUF_EXE) generate
 
 .PHONY: deps
@@ -46,7 +42,9 @@ deps:
 	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.5.0
 	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.5.0
 	go install github.com/envoyproxy/protoc-gen-validate@v0.6.1
-	go install github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger@latest
+	go install github.com/bufbuild/buf/cmd/buf@v0.56.0
+	go install github.com/bufbuild/buf/cmd/protoc-gen-buf-breaking@v0.56.0
+	go install github.com/bufbuild/buf/cmd/protoc-gen-buf-lint@v0.56.0
 
 .PHONY: build
 build: generate .build

@@ -7,6 +7,8 @@ import (
 	category_service "github.com/ozonmp/week-3-workshop/category-service/pkg/category-service"
 )
 
+var ErrWrongCategory = errors.New("category does not exist")
+
 //go:generate mockgen -package=product_service -destination=service_mocks_test.go -self_package=github.com/ozonmp/week-3-workshop/product-service/internal/service/product . IRepository,ICategoryClient
 
 type IRepository interface {
@@ -40,7 +42,7 @@ func (s *Service) CreateProduct(
 	}
 
 	if !exists {
-		return nil, errors.New("category does not exist")
+		return nil, ErrWrongCategory
 	}
 
 	product := &Product{

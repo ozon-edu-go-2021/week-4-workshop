@@ -45,4 +45,4 @@ jobs:
         with:
           push: true
           # tags: <org-name>/<repo-name>/<app-name>:${{ env.IMAGE_TAG }}
-          tags: ghcr.io/${{ github.repository_owner }}/omp-grpc-template/server:${{ env.IMAGE_TAG }}
+          tags: ghcr.io/${{ github.repository_owner }}/week-3-workshop/category-service/server:${{ env.IMAGE_TAG }}

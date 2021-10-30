@@ -1,4 +1,4 @@
-# omp-grpc-template
+# week-3-workshop/category-service
 
 Это максимально легковесный шаблон для gRPC.
 

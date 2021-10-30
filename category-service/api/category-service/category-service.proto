@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package ozonmp.omp_grpc_template.category_service.v1;
+package ozonmp.week_3_workshop.category_service.category_service.v1;
 
 import "google/api/annotations.proto";
 import "validate/validate.proto";
 
-option go_package = "github.com/ozonmp/omp-grpc-template/pkg/category-service;category_service";
+option go_package = "github.com/ozonmp/week-3-workshop/category-service/pkg/category-service;category_service";
 
 service SampleService {
   rpc SampleMethodV1 (SampleMethodV1Request) returns (SampleMethodV1Response) {

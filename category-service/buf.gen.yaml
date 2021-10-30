@@ -3,22 +3,22 @@ plugins:
   - name: go
     out: .
     opt:
-      - module=github.com/ozonmp/omp-grpc-template
+      - module=github.com/ozonmp/week-3-workshop/category-service
   - name: go-grpc
     out: .
     opt:
-      - module=github.com/ozonmp/omp-grpc-template
+      - module=github.com/ozonmp/week-3-workshop/category-service
   - name: grpc-gateway
     out: .
     opt:
       - generate_unbound_methods=true
       - logtostderr=true
-      - module=github.com/ozonmp/omp-grpc-template
+      - module=github.com/ozonmp/week-3-workshop/category-service
   - name: validate
     out: .
     opt:
       - lang=go
-      - module=github.com/ozonmp/omp-grpc-template
+      - module=github.com/ozonmp/week-3-workshop/category-service
   - name: openapiv2
     path: protoc-gen-openapiv2
     out: swagger

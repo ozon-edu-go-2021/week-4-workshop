@@ -10,8 +10,8 @@ import (
 	_ "github.com/jackc/pgx/v4/stdlib"
 	_ "github.com/lib/pq"
 
-	"github.com/ozonmp/omp-grpc-template/internal/config"
-	"github.com/ozonmp/omp-grpc-template/internal/server"
+	"github.com/ozonmp/week-3-workshop/category-service/internal/config"
+	"github.com/ozonmp/week-3-workshop/category-service/internal/server"
 )
 
 func main() {

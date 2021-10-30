@@ -1,6 +1,6 @@
 # Builder
 
-ARG GITHUB_PATH=github.com/ozonmp/omp-grpc-template
+ARG GITHUB_PATH=github.com/ozonmp/week-3-workshop/category-service
 
 FROM golang:1.16-alpine AS builder
 RUN apk add --update make git protoc protobuf protobuf-dev curl

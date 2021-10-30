@@ -5,8 +5,8 @@ endif
 
 export GO111MODULE=on
 
-SERVICE_NAME=omp-grpc-template
-SERVICE_PATH=ozonmp/omp-grpc-template
+SERVICE_NAME=category-service
+SERVICE_PATH=ozonmp/week-3-workshop/category-service
 
 OS_NAME=$(shell uname -s)
 OS_ARCH=$(shell uname -m)

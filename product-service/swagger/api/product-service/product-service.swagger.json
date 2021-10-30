@@ -16,14 +16,14 @@
     "application/json"
   ],
   "paths": {
-    "/v1/sample": {
+    "/products/create": {
       "post": {
-        "operationId": "ProductService_SampleMethodV1",
+        "operationId": "ProductService_CreateProduct",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1SampleMethodV1Response"
+              "$ref": "#/definitions/v1CreateProductResponse"
             }
           },
           "default": {
@@ -39,7 +39,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1SampleMethodV1Request"
+              "$ref": "#/definitions/v1CreateProductRequest"
             }
           }
         ],
@@ -80,32 +80,39 @@
         }
       }
     },
-    "v1SampleMethodV1Request": {
+    "v1CreateProductRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "categoryId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CreateProductResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/v1Product"
+        }
+      }
+    },
+    "v1Product": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string",
-          "format": "uint64"
-        }
-      }
-    },
-    "v1SampleMethodV1Response": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "$ref": "#/definitions/v1Template"
-        }
-      }
-    },
-    "v1Template": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "format": "uint64"
+          "format": "int64"
         },
         "name": {
           "type": "string"
+        },
+        "categoryId": {
+          "type": "string",
+          "format": "int64"
         }
       }
     }

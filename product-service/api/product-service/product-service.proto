@@ -8,23 +8,25 @@ import "validate/validate.proto";
 option go_package = "pkg/product-service;product_service";
 
 service ProductService {
-  rpc SampleMethodV1 (SampleMethodV1Request) returns (SampleMethodV1Response) {
+  rpc CreateProduct (CreateProductRequest) returns (CreateProductResponse) {
     option (google.api.http) = {
-      post: "/v1/sample"
+      post: "/products/create"
       body: "*"
     };
   }
 }
 
-message Template {
-  uint64 id  = 1;
+message Product {
+  int64 id  = 1;
   string name = 2;
+  int64 category_id = 3;
 }
 
-message SampleMethodV1Request {
-  uint64 id = 1 [(validate.rules).uint64.gt = 0];
+message CreateProductRequest {
+  string name = 1 [(validate.rules).string = { min_len: 2, max_len: 100 }];
+  int64 category_id = 2 [(validate.rules).int64.gt = 0];
 }
 
-message SampleMethodV1Response {
-  Template value = 1;
+message CreateProductResponse {
+  Product result = 1;
 }

@@ -12,6 +12,8 @@ import (
 
 	"github.com/ozonmp/week-3-workshop/category-service/internal/config"
 	"github.com/ozonmp/week-3-workshop/category-service/internal/server"
+	"github.com/ozonmp/week-3-workshop/category-service/internal/service/category"
+	cat_repository "github.com/ozonmp/week-3-workshop/category-service/internal/service/category/repository"
 )
 
 func main() {
@@ -34,7 +36,12 @@ func main() {
 		zerolog.SetGlobalLevel(zerolog.DebugLevel)
 	}
 
-	if err := server.NewGrpcServer().Start(&cfg); err != nil {
+	categoryRepository := cat_repository.New()
+	categoryService := category.New(categoryRepository)
+
+	if err := server.NewGrpcServer(
+		categoryService,
+	).Start(&cfg); err != nil {
 		log.Error().Err(err).Msg("Failed creating gRPC server")
 
 		return

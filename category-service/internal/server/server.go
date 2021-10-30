@@ -23,14 +23,18 @@ import (
 
 	api "github.com/ozonmp/week-3-workshop/category-service/internal/app/category-service"
 	"github.com/ozonmp/week-3-workshop/category-service/internal/config"
+	"github.com/ozonmp/week-3-workshop/category-service/internal/service/category"
 	desc "github.com/ozonmp/week-3-workshop/category-service/pkg/category-service"
 )
 
 type GrpcServer struct {
+	categoryService category.Service
 }
 
-func NewGrpcServer() *GrpcServer {
-	return &GrpcServer{}
+func NewGrpcServer(categoryService category.Service) *GrpcServer {
+	return &GrpcServer{
+		categoryService: categoryService,
+	}
 }
 
 func (s *GrpcServer) Start(cfg *config.Config) error {
@@ -83,7 +87,9 @@ func (s *GrpcServer) Start(cfg *config.Config) error {
 		)),
 	)
 
-	desc.RegisterCategoryServiceServer(grpcServer, api.NewCategoryService())
+	desc.RegisterCategoryServiceServer(grpcServer, api.NewCategoryService(
+		s.categoryService,
+	))
 
 	go func() {
 		log.Info().Msgf("GRPC Server is listening on: %s", grpcAddr)

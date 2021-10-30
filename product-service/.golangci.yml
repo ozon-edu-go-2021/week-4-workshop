@@ -51,7 +51,7 @@ issues:
     # for "public interface + private struct implementation" cases only!
     - exported func .* returns unexported type .*, which can be annoying to use
     # can be removed in the development phase
-    # - (comment on exported (method|function|type|const)|should have( a package)? comment|comment should be of the form)
+    - (comment on exported (method|function|type|const)|should have( a package)? comment|comment should be of the form)
     # not for the active development - can be removed in the stable phase
     - should have a package comment, unless it's in another file for this package
     - don't use an underscore in package name

@@ -45,6 +45,7 @@ deps:
 	go install github.com/bufbuild/buf/cmd/buf@v0.56.0
 	go install github.com/bufbuild/buf/cmd/protoc-gen-buf-breaking@v0.56.0
 	go install github.com/bufbuild/buf/cmd/protoc-gen-buf-lint@v0.56.0
+	go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.42.1
 
 .PHONY: build
 build: generate .build

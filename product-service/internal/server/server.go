@@ -23,14 +23,18 @@ import (
 
 	api "github.com/ozonmp/week-3-workshop/product-service/internal/app/product-service"
 	"github.com/ozonmp/week-3-workshop/product-service/internal/config"
+	product_service "github.com/ozonmp/week-3-workshop/product-service/internal/service/product"
 	desc "github.com/ozonmp/week-3-workshop/product-service/pkg/product-service"
 )
 
 type GrpcServer struct {
+	productService *product_service.Service
 }
 
-func NewGrpcServer() *GrpcServer {
-	return &GrpcServer{}
+func NewGrpcServer(productService *product_service.Service) *GrpcServer {
+	return &GrpcServer{
+		productService: productService,
+	}
 }
 
 func (s *GrpcServer) Start(cfg *config.Config) error {
@@ -83,7 +87,7 @@ func (s *GrpcServer) Start(cfg *config.Config) error {
 		)),
 	)
 
-	desc.RegisterProductServiceServer(grpcServer, api.NewProductService())
+	desc.RegisterProductServiceServer(grpcServer, api.NewProductService(s.productService))
 
 	go func() {
 		log.Info().Msgf("GRPC Server is listening on: %s", grpcAddr)

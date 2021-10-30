@@ -12,6 +12,7 @@ import (
 
 	"github.com/ozonmp/week-3-workshop/product-service/internal/config"
 	"github.com/ozonmp/week-3-workshop/product-service/internal/server"
+	product_service "github.com/ozonmp/week-3-workshop/product-service/internal/service/product"
 )
 
 func main() {
@@ -35,11 +36,9 @@ func main() {
 	}
 
 	// categoryRepository := cat_repository.New()
-	// ProductService := category.New(categoryRepository)
+	productService := product_service.NewService()
 
-	if err := server.NewGrpcServer(
-	// ProductService,
-	).Start(&cfg); err != nil {
+	if err := server.NewGrpcServer(productService).Start(&cfg); err != nil {
 		log.Error().Err(err).Msg("Failed creating gRPC server")
 
 		return

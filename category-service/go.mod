@@ -1,6 +1,6 @@
-module github.com/ozonmp/omp-grpc-template
+module github.com/ozonmp/week-3-workshop/category-service
 
-go 1.16
+go 1.17
 
 require (
 	github.com/envoyproxy/protoc-gen-validate v0.6.2
@@ -14,7 +14,7 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.8 // indirect
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
 	github.com/opentracing/opentracing-go v1.2.0
-	github.com/ozonmp/omp-grpc-template/pkg/sample-service v0.0.1
+	github.com/ozonmp/week-3-workshop/category-service/pkg/category-service v0.0.0
 	github.com/rs/zerolog v1.24.0
 	google.golang.org/genproto v0.0.0-20211021150943-2b146023228c
 	google.golang.org/grpc v1.41.0
@@ -23,4 +23,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 )
 
-replace github.com/ozonmp/omp-grpc-template/pkg/sample-service => ./pkg/sample-service
+replace github.com/ozonmp/week-3-workshop/category-service/pkg/category-service => ./pkg/category-service

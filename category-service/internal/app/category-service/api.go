@@ -1,7 +1,7 @@
-package sample_service
+package category_service
 
 import (
-	desc "github.com/ozonmp/omp-grpc-template/pkg/sample-service"
+	desc "github.com/ozonmp/omp-grpc-template/pkg/category-service"
 )
 
 type Implementation struct {

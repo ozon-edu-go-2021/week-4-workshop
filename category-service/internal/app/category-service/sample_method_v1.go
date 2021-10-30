@@ -1,4 +1,4 @@
-package sample_service
+package category_service
 
 import (
 	"context"
@@ -7,7 +7,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	desc "github.com/ozonmp/omp-grpc-template/pkg/sample-service"
+	desc "github.com/ozonmp/week-3-workshop/category-service/pkg/category-service"
 )
 
 func (i *Implementation) SampleMethodV1(

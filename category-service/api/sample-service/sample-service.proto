@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package ozonmp.omp_grpc_template.sample_service.v1;
+
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+
+option go_package = "github.com/ozonmp/omp-grpc-template/pkg/sample-service;sample_service";
+
+service SampleService {
+  rpc SampleMethodV1 (SampleMethodV1Request) returns (SampleMethodV1Response) {
+    option (google.api.http) = {
+      post: "/v1/sample"
+      body: "*"
+    };
+  }
+}
+
+message Template {
+  uint64 id  = 1;
+  string name = 2;
+}
+
+message SampleMethodV1Request {
+  uint64 id = 1 [(validate.rules).uint64.gt = 0];
+}
+
+message SampleMethodV1Response {
+  Template value = 1;
+}

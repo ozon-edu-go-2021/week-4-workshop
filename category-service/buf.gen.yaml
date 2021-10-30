@@ -1,0 +1,27 @@
+version: v1beta1
+plugins:
+  - name: go
+    out: .
+    opt:
+      - module=github.com/ozonmp/omp-grpc-template
+  - name: go-grpc
+    out: .
+    opt:
+      - module=github.com/ozonmp/omp-grpc-template
+  - name: grpc-gateway
+    out: .
+    opt:
+      - generate_unbound_methods=true
+      - logtostderr=true
+      - module=github.com/ozonmp/omp-grpc-template
+  - name: validate
+    out: .
+    opt:
+      - lang=go
+      - module=github.com/ozonmp/omp-grpc-template
+  - name: openapiv2
+    path: protoc-gen-openapiv2
+    out: swagger
+    opt:
+      - generate_unbound_methods=true
+    strategy: directory

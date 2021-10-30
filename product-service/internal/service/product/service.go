@@ -1,20 +1,31 @@
 package product_service
 
-import "context"
+import (
+	"context"
+	"errors"
 
-//go:generate mockgen -package=product_service -destination=service_mocks_test.go -self_package=github.com/ozonmp/week-3-workshop/product-service/internal/service/product . IRepository
+	category_service "github.com/ozonmp/week-3-workshop/category-service/pkg/category-service"
+)
+
+//go:generate mockgen -package=product_service -destination=service_mocks_test.go -self_package=github.com/ozonmp/week-3-workshop/product-service/internal/service/product . IRepository,ICategoryClient
 
 type IRepository interface {
 	SaveProduct(ctx context.Context, product *Product) error
 }
 
-type Service struct {
-	repo IRepository
+type ICategoryClient interface {
+	IsCategoryExists(ctx context.Context, categoryID int64) (ok bool, err error)
 }
 
-func NewService() *Service {
+type Service struct {
+	repo   IRepository
+	client ICategoryClient
+}
+
+func NewService(grpcClient category_service.CategoryServiceClient) *Service {
 	return &Service{
-		repo: newRepo(),
+		repo:   newRepo(),
+		client: newClient(grpcClient),
 	}
 }
 
@@ -23,6 +34,15 @@ func (s *Service) CreateProduct(
 	name string,
 	categoryID int64,
 ) (*Product, error) {
+	exists, err := s.client.IsCategoryExists(ctx, categoryID)
+	if err != nil {
+		return nil, err
+	}
+
+	if !exists {
+		return nil, errors.New("category does not exist")
+	}
+
 	product := &Product{
 		Name:       name,
 		CategoryID: categoryID,

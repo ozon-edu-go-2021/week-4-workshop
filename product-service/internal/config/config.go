@@ -56,10 +56,11 @@ type Project struct {
 
 // Config - contains all configuration parameters in config package.
 type Config struct {
-	Project Project `yaml:"project"`
-	Grpc    Grpc    `yaml:"grpc"`
-	Gateway Gateway `yaml:"gateway"`
-	Swagger Swagger `yaml:"swagger"`
+	Project             Project `yaml:"project"`
+	Grpc                Grpc    `yaml:"grpc"`
+	Gateway             Gateway `yaml:"gateway"`
+	Swagger             Swagger `yaml:"swagger"`
+	CategoryServiceAddr string  `yaml:"categoryServiceAddr"`
 }
 
 // ReadConfigYML - read configurations from file and init instance Config.

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-GRPC_HOST="localhost:7002"
+GRPC_HOST="localhost:6002"
 GRPC_METHOD="ozonmp.week_3_workshop.category_service.category_service.v1.CategoryService/GetCategoryById"
 
 payload=$(

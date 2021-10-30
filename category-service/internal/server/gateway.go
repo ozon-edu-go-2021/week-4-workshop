@@ -33,7 +33,7 @@ func createGatewayServer(grpcAddr, gatewayAddr string, allowedOrigins []string) 
 	}
 
 	mux := runtime.NewServeMux()
-	if err := desc.RegisterSampleServiceHandler(context.Background(), mux, conn); err != nil {
+	if err := desc.RegisterCategoryServiceHandler(context.Background(), mux, conn); err != nil {
 		log.Fatal().Err(err).Msg("Failed registration handler")
 	}
 

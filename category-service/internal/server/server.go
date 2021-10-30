@@ -83,7 +83,7 @@ func (s *GrpcServer) Start(cfg *config.Config) error {
 		)),
 	)
 
-	desc.RegisterSampleServiceServer(grpcServer, api.NewSampleService())
+	desc.RegisterCategoryServiceServer(grpcServer, api.NewCategoryService())
 
 	go func() {
 		log.Info().Msgf("GRPC Server is listening on: %s", grpcAddr)

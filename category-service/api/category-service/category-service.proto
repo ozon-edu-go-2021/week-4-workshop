@@ -7,24 +7,20 @@ import "validate/validate.proto";
 
 option go_package = "github.com/ozonmp/week-3-workshop/category-service/pkg/category-service;category_service";
 
-service SampleService {
-  rpc SampleMethodV1 (SampleMethodV1Request) returns (SampleMethodV1Response) {
-    option (google.api.http) = {
-      post: "/v1/sample"
-      body: "*"
-    };
-  }
+service CategoryService {
+  rpc GetCategoryById (GetCategoryByIdRequest) returns (GetCategoryByIdResponse);
 }
 
-message Template {
+message Category {
   uint64 id  = 1;
   string name = 2;
 }
 
-message SampleMethodV1Request {
+message GetCategoryByIdRequest {
   uint64 id = 1 [(validate.rules).uint64.gt = 0];
 }
 
-message SampleMethodV1Response {
-  Template value = 1;
+message GetCategoryByIdResponse {
+  // Категория
+  Category category = 1;
 }

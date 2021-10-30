@@ -33,9 +33,9 @@ var (
 	_ = anypb.Any{}
 )
 
-// Validate checks the field values on Template with the rules defined in the
+// Validate checks the field values on Category with the rules defined in the
 // proto definition for this message. If any rules are violated, an error is returned.
-func (m *Template) Validate() error {
+func (m *Category) Validate() error {
 	if m == nil {
 		return nil
 	}
@@ -47,9 +47,9 @@ func (m *Template) Validate() error {
 	return nil
 }
 
-// TemplateValidationError is the validation error returned by
-// Template.Validate if the designated constraints aren't met.
-type TemplateValidationError struct {
+// CategoryValidationError is the validation error returned by
+// Category.Validate if the designated constraints aren't met.
+type CategoryValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -57,22 +57,22 @@ type TemplateValidationError struct {
 }
 
 // Field function returns field value.
-func (e TemplateValidationError) Field() string { return e.field }
+func (e CategoryValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e TemplateValidationError) Reason() string { return e.reason }
+func (e CategoryValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e TemplateValidationError) Cause() error { return e.cause }
+func (e CategoryValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e TemplateValidationError) Key() bool { return e.key }
+func (e CategoryValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e TemplateValidationError) ErrorName() string { return "TemplateValidationError" }
+func (e CategoryValidationError) ErrorName() string { return "CategoryValidationError" }
 
 // Error satisfies the builtin error interface
-func (e TemplateValidationError) Error() string {
+func (e CategoryValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -84,14 +84,14 @@ func (e TemplateValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sTemplate.%s: %s%s",
+		"invalid %sCategory.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = TemplateValidationError{}
+var _ error = CategoryValidationError{}
 
 var _ interface {
 	Field() string
@@ -99,18 +99,18 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = TemplateValidationError{}
+} = CategoryValidationError{}
 
-// Validate checks the field values on SampleMethodV1Request with the rules
+// Validate checks the field values on GetCategoryByIdRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *SampleMethodV1Request) Validate() error {
+func (m *GetCategoryByIdRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
 	if m.GetId() <= 0 {
-		return SampleMethodV1RequestValidationError{
+		return GetCategoryByIdRequestValidationError{
 			field:  "Id",
 			reason: "value must be greater than 0",
 		}
@@ -119,9 +119,9 @@ func (m *SampleMethodV1Request) Validate() error {
 	return nil
 }
 
-// SampleMethodV1RequestValidationError is the validation error returned by
-// SampleMethodV1Request.Validate if the designated constraints aren't met.
-type SampleMethodV1RequestValidationError struct {
+// GetCategoryByIdRequestValidationError is the validation error returned by
+// GetCategoryByIdRequest.Validate if the designated constraints aren't met.
+type GetCategoryByIdRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -129,24 +129,24 @@ type SampleMethodV1RequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e SampleMethodV1RequestValidationError) Field() string { return e.field }
+func (e GetCategoryByIdRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e SampleMethodV1RequestValidationError) Reason() string { return e.reason }
+func (e GetCategoryByIdRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e SampleMethodV1RequestValidationError) Cause() error { return e.cause }
+func (e GetCategoryByIdRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e SampleMethodV1RequestValidationError) Key() bool { return e.key }
+func (e GetCategoryByIdRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e SampleMethodV1RequestValidationError) ErrorName() string {
-	return "SampleMethodV1RequestValidationError"
+func (e GetCategoryByIdRequestValidationError) ErrorName() string {
+	return "GetCategoryByIdRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e SampleMethodV1RequestValidationError) Error() string {
+func (e GetCategoryByIdRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -158,14 +158,14 @@ func (e SampleMethodV1RequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sSampleMethodV1Request.%s: %s%s",
+		"invalid %sGetCategoryByIdRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = SampleMethodV1RequestValidationError{}
+var _ error = GetCategoryByIdRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -173,20 +173,20 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = SampleMethodV1RequestValidationError{}
+} = GetCategoryByIdRequestValidationError{}
 
-// Validate checks the field values on SampleMethodV1Response with the rules
+// Validate checks the field values on GetCategoryByIdResponse with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *SampleMethodV1Response) Validate() error {
+func (m *GetCategoryByIdResponse) Validate() error {
 	if m == nil {
 		return nil
 	}
 
-	if v, ok := interface{}(m.GetValue()).(interface{ Validate() error }); ok {
+	if v, ok := interface{}(m.GetCategory()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return SampleMethodV1ResponseValidationError{
-				field:  "Value",
+			return GetCategoryByIdResponseValidationError{
+				field:  "Category",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -196,9 +196,9 @@ func (m *SampleMethodV1Response) Validate() error {
 	return nil
 }
 
-// SampleMethodV1ResponseValidationError is the validation error returned by
-// SampleMethodV1Response.Validate if the designated constraints aren't met.
-type SampleMethodV1ResponseValidationError struct {
+// GetCategoryByIdResponseValidationError is the validation error returned by
+// GetCategoryByIdResponse.Validate if the designated constraints aren't met.
+type GetCategoryByIdResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -206,24 +206,24 @@ type SampleMethodV1ResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e SampleMethodV1ResponseValidationError) Field() string { return e.field }
+func (e GetCategoryByIdResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e SampleMethodV1ResponseValidationError) Reason() string { return e.reason }
+func (e GetCategoryByIdResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e SampleMethodV1ResponseValidationError) Cause() error { return e.cause }
+func (e GetCategoryByIdResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e SampleMethodV1ResponseValidationError) Key() bool { return e.key }
+func (e GetCategoryByIdResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e SampleMethodV1ResponseValidationError) ErrorName() string {
-	return "SampleMethodV1ResponseValidationError"
+func (e GetCategoryByIdResponseValidationError) ErrorName() string {
+	return "GetCategoryByIdResponseValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e SampleMethodV1ResponseValidationError) Error() string {
+func (e GetCategoryByIdResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -235,14 +235,14 @@ func (e SampleMethodV1ResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sSampleMethodV1Response.%s: %s%s",
+		"invalid %sGetCategoryByIdResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = SampleMethodV1ResponseValidationError{}
+var _ error = GetCategoryByIdResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -250,4 +250,4 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = SampleMethodV1ResponseValidationError{}
+} = GetCategoryByIdResponseValidationError{}

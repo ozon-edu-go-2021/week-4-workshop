@@ -3,8 +3,6 @@ package server
 import (
 	"context"
 	"net/http"
-	"os"
-	"strings"
 
 	grpc_opentracing "github.com/grpc-ecosystem/go-grpc-middleware/tracing/opentracing"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
@@ -37,31 +35,9 @@ func createGatewayServer(grpcAddr, gatewayAddr string, allowedOrigins []string) 
 		log.Fatal().Err(err).Msg("Failed registration handler")
 	}
 
-	mux.HandlePath("GET", "/swagger.json", func(w http.ResponseWriter, r *http.Request, pathParams map[string]string) {
-		swaggerBytes, err := os.ReadFile("swagger/api/omp_grpc_template/omp_grpc_template.swagger.json")
-		if err != nil {
-			w.Write([]byte(err.Error()))
-			w.WriteHeader(500)
-			return
-		}
-
-		w.Header().Set("Content-type", "application/json")
-		w.WriteHeader(200)
-		w.Write(swaggerBytes)
-	})
-
-	docsServer := http.FileServer(http.Dir("./swagger/dist"))
-
 	gatewayServer := &http.Server{
-		Addr: gatewayAddr,
-		Handler: cors(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			if r.URL.Path == "/docs" || strings.HasPrefix(r.URL.Path, "/docs/") {
-				r.URL.Path = strings.TrimPrefix(r.URL.Path, "/docs")
-				docsServer.ServeHTTP(w, r)
-			} else {
-				mux.ServeHTTP(w, r)
-			}
-		}), allowedOrigins),
+		Addr:    gatewayAddr,
+		Handler: cors(mux, allowedOrigins),
 	}
 
 	return gatewayServer

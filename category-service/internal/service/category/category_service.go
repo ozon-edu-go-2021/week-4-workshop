@@ -4,6 +4,8 @@ import (
 	"context"
 
 	"github.com/pkg/errors"
+
+	internal_errors "github.com/ozonmp/week-3-workshop/category-service/internal/pkg/errors"
 )
 
 type Service struct {
@@ -20,7 +22,7 @@ func New(repository RepositoryInterface) Service {
 	}
 }
 
-var ErrNoCategory = errors.New("no category")
+var ErrNoCategory = errors.Wrap(internal_errors.ErrNotFound, "no category")
 
 func (s Service) GetCategoryByID(ctx context.Context, id uint64) (*Category, error) {
 	cats, err := s.repository.FindAllCategories(ctx)

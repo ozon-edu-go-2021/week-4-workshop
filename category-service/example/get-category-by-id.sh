@@ -6,7 +6,7 @@ GRPC_METHOD="ozonmp.week_3_workshop.category_service.category_service.v1.Categor
 payload=$(
   cat <<EOF
 {
-  "id": 123
+  "id": 4
 }
 EOF
 )

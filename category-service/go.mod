@@ -9,6 +9,7 @@ require (
 	github.com/lib/pq v1.10.3
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/ozonmp/week-3-workshop/category-service/pkg/category-service v0.0.0
+	github.com/pkg/errors v0.9.1
 	github.com/rs/zerolog v1.24.0
 	google.golang.org/grpc v1.41.0
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b

@@ -5,7 +5,7 @@ package ozonmp.week_3_workshop.category_service.category_service.v1;
 import "google/api/annotations.proto";
 import "validate/validate.proto";
 
-option go_package = "github.com/ozonmp/week-3-workshop/category-service/pkg/category-service;category_service";
+option go_package = "pkg/category-service;category_service";
 
 service CategoryService {
   rpc GetCategoryById (GetCategoryByIdRequest) returns (GetCategoryByIdResponse);

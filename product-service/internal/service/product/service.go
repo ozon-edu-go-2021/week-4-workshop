@@ -5,6 +5,8 @@ import (
 	"errors"
 
 	category_service "github.com/ozonmp/week-4-workshop/category-service/pkg/category-service"
+
+	"github.com/jmoiron/sqlx"
 )
 
 var ErrWrongCategory = errors.New("category does not exist")
@@ -12,7 +14,9 @@ var ErrWrongCategory = errors.New("category does not exist")
 //go:generate mockgen -package=product_service -destination=service_mocks_test.go -self_package=github.com/ozonmp/week-4-workshop/product-service/internal/service/product . IRepository,ICategoryClient
 
 type IRepository interface {
-	SaveProduct(ctx context.Context, product *Product) error
+	SaveProduct(ctx context.Context, product *Product) (int64, error)
+	DeleteProduct(ctx context.Context, IDs []int64) error
+	GetProduct(ctx context.Context, IDs []int64) ([]Product, error)
 }
 
 type ICategoryClient interface {
@@ -24,9 +28,9 @@ type Service struct {
 	client ICategoryClient
 }
 
-func NewService(grpcClient category_service.CategoryServiceClient) *Service {
+func NewService(grpcClient category_service.CategoryServiceClient, db *sqlx.DB) *Service {
 	return &Service{
-		repo:   newRepo(),
+		repo:   newRepo(db),
 		client: newClient(grpcClient),
 	}
 }
@@ -50,9 +54,17 @@ func (s *Service) CreateProduct(
 		CategoryID: categoryID,
 	}
 
-	if err := s.repo.SaveProduct(ctx, product); err != nil {
+	if id, err := s.repo.SaveProduct(ctx, product); err != nil {
 		return nil, err
+	} else {
+		product.ID = id
+		return product, nil
 	}
+}
 
-	return product, nil
+func (s *Service) DeleteProduct(ctx context.Context, IDs []int64) error {
+	return s.repo.DeleteProduct(ctx, IDs)
+}
+func (s *Service)  GetProduct(ctx context.Context, IDs []int64) ([]Product, error) {
+	return s.repo.GetProduct(ctx, IDs)
 }

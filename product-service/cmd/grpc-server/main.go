@@ -4,6 +4,7 @@ import (
 	"context"
 	"flag"
 
+	"github.com/ozonmp/week-4-workshop/product-service/internal/pkg/db"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
@@ -50,9 +51,15 @@ func main() {
 		log.Error().Err(err).Msg("failed to create client")
 	}
 
+	conn, err := db.ConnectDB(&cfg.DB)
+	if err != nil {
+		log.Fatal().Err(err).Msg("sql.Open() error")
+	}
+	defer conn.Close()
+
 	categoryServiceClient := grpc_category_service.NewCategoryServiceClient(categoryServiceConn)
 
-	productService := product_service.NewService(categoryServiceClient)
+	productService := product_service.NewService(categoryServiceClient, conn)
 
 	if err := server.NewGrpcServer(productService).Start(&cfg); err != nil {
 		log.Error().Err(err).Msg("Failed creating gRPC server")

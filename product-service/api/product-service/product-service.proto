@@ -14,6 +14,18 @@ service ProductService {
       body: "*"
     };
   }
+  rpc DeleteProduct (DeleteProductRequest) returns (DeleteProductResponse) {
+    option (google.api.http) = {
+      post: "/products/delete"
+      body: "*"
+    };
+  }
+  rpc GetProduct (GetProductRequest) returns (GetProductResponse) {
+    option (google.api.http) = {
+      post: "/products/get"
+      body: "*"
+    };
+  }
 }
 
 message Product {
@@ -29,4 +41,18 @@ message CreateProductRequest {
 
 message CreateProductResponse {
   Product result = 1;
+}
+
+message DeleteProductRequest {
+  repeated int64 product_ids = 1 [(validate.rules).repeated.items.int64.gt = 0];
+}
+
+message DeleteProductResponse {}
+
+message GetProductRequest {
+  repeated int64 product_ids = 1 [(validate.rules).repeated.items.int64.gt = 0];
+}
+
+message GetProductResponse {
+  repeated Product products = 1;
 }

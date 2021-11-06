@@ -1,4 +1,4 @@
-module github.com/ozonmp/week-3-workshop/product-service
+module github.com/ozonmp/week-4-workshop/product-service
 
 go 1.17
 
@@ -16,7 +16,7 @@ require (
 require (
 	github.com/envoyproxy/protoc-gen-validate v0.6.2
 	github.com/golang/mock v1.6.0
-	github.com/ozonmp/week-3-workshop/category-service/pkg/category-service v0.0.0-20211030111829-b04e0635a5aa
+	github.com/ozonmp/week-4-workshop/category-service/pkg/category-service v0.0.0-20211030111829-b04e0635a5aa
 	github.com/stretchr/testify v1.7.0
 	google.golang.org/genproto v0.0.0-20211029142109-e255c875f7c7
 	google.golang.org/protobuf v1.27.1
@@ -42,4 +42,4 @@ require (
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
 )
 
-// replace github.com/ozonmp/week-3-workshop/product-service/pkg/product-service => ./pkg/product-service
+// replace github.com/ozonmp/week-4-workshop/product-service/pkg/product-service => ./pkg/product-service

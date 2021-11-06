@@ -1,4 +1,4 @@
-module github.com/ozonmp/week-3-workshop/category-service
+module github.com/ozonmp/week-4-workshop/category-service
 
 go 1.17
 
@@ -8,7 +8,7 @@ require (
 	github.com/jackc/pgx/v4 v4.13.0
 	github.com/lib/pq v1.10.3
 	github.com/opentracing/opentracing-go v1.2.0
-	github.com/ozonmp/week-3-workshop/category-service/pkg/category-service v0.0.0
+	github.com/ozonmp/week-4-workshop/category-service/pkg/category-service v0.0.0
 	github.com/pkg/errors v0.9.1
 	github.com/rs/zerolog v1.24.0
 	google.golang.org/grpc v1.41.0
@@ -36,4 +36,4 @@ require (
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
 )
 
-replace github.com/ozonmp/week-3-workshop/category-service/pkg/category-service => ./pkg/category-service
+replace github.com/ozonmp/week-4-workshop/category-service/pkg/category-service => ./pkg/category-service

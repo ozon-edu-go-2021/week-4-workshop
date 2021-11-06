@@ -6,7 +6,7 @@ endif
 export GO111MODULE=on
 
 SERVICE_NAME=product-service
-SERVICE_PATH=ozonmp/week-3-workshop/product-service
+SERVICE_PATH=ozonmp/week-4-workshop/product-service
 
 OS_NAME=$(shell uname -s)
 OS_ARCH=$(shell uname -m)
@@ -46,13 +46,15 @@ deps:
 	go install github.com/bufbuild/buf/cmd/protoc-gen-buf-breaking@v0.56.0
 	go install github.com/bufbuild/buf/cmd/protoc-gen-buf-lint@v0.56.0
 	go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.42.1
+	go mod download
+
 
 .PHONY: build
 build: generate .build
 
 .PHONY: .build
 .build:
-	go mod download && CGO_ENABLED=0  go build \
+	CGO_ENABLED=0  go build \
 		-tags='no_mysql no_sqlite3' \
 		-ldflags=" \
 			-X 'github.com/$(SERVICE_PATH)/internal/config.version=$(VERSION)' \

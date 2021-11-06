@@ -10,7 +10,7 @@ import (
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
 
-	desc "github.com/ozonmp/week-3-workshop/category-service/pkg/category-service"
+	desc "github.com/ozonmp/week-4-workshop/category-service/pkg/category-service"
 )
 
 func createGatewayServer(grpcAddr, gatewayAddr string, allowedOrigins []string) *http.Server {

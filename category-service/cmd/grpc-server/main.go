@@ -10,10 +10,10 @@ import (
 	_ "github.com/jackc/pgx/v4/stdlib"
 	_ "github.com/lib/pq"
 
-	"github.com/ozonmp/week-3-workshop/category-service/internal/config"
-	"github.com/ozonmp/week-3-workshop/category-service/internal/server"
-	"github.com/ozonmp/week-3-workshop/category-service/internal/service/category"
-	cat_repository "github.com/ozonmp/week-3-workshop/category-service/internal/service/category/repository"
+	"github.com/ozonmp/week-4-workshop/category-service/internal/config"
+	"github.com/ozonmp/week-4-workshop/category-service/internal/server"
+	"github.com/ozonmp/week-4-workshop/category-service/internal/service/category"
+	cat_repository "github.com/ozonmp/week-4-workshop/category-service/internal/service/category/repository"
 )
 
 func main() {

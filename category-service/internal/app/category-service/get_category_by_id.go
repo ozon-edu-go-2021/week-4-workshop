@@ -7,9 +7,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	internal_errors "github.com/ozonmp/week-3-workshop/category-service/internal/pkg/errors"
-	"github.com/ozonmp/week-3-workshop/category-service/internal/service/category"
-	category_service "github.com/ozonmp/week-3-workshop/category-service/pkg/category-service"
+	internal_errors "github.com/ozonmp/week-4-workshop/category-service/internal/pkg/errors"
+	"github.com/ozonmp/week-4-workshop/category-service/internal/service/category"
+	category_service "github.com/ozonmp/week-4-workshop/category-service/pkg/category-service"
 )
 
 func (i *Implementation) GetCategoryById(ctx context.Context, req *category_service.GetCategoryByIdRequest) (*category_service.GetCategoryByIdResponse, error) {

@@ -3,7 +3,7 @@ package cat_repository
 import (
 	"context"
 
-	"github.com/ozonmp/week-3-workshop/category-service/internal/service/category"
+	"github.com/ozonmp/week-4-workshop/category-service/internal/service/category"
 )
 
 var categories = category.Categories{
@@ -23,7 +23,7 @@ var categories = category.Categories{
 
 type Repository struct{}
 
-func New( /* db */) *Repository {
+func New( /* db */ ) *Repository {
 	return &Repository{}
 }
 

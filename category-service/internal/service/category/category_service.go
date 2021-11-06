@@ -5,7 +5,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	internal_errors "github.com/ozonmp/week-3-workshop/category-service/internal/pkg/errors"
+	internal_errors "github.com/ozonmp/week-4-workshop/category-service/internal/pkg/errors"
 )
 
 type Service struct {

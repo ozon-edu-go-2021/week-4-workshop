@@ -21,11 +21,11 @@ import (
 	grpc_ctxtags "github.com/grpc-ecosystem/go-grpc-middleware/tags"
 	grpc_opentracing "github.com/grpc-ecosystem/go-grpc-middleware/tracing/opentracing"
 
-	api "github.com/ozonmp/week-3-workshop/category-service/internal/app/category-service"
-	"github.com/ozonmp/week-3-workshop/category-service/internal/config"
-	mwserver "github.com/ozonmp/week-3-workshop/category-service/internal/pkg/mw/server"
-	"github.com/ozonmp/week-3-workshop/category-service/internal/service/category"
-	desc "github.com/ozonmp/week-3-workshop/category-service/pkg/category-service"
+	api "github.com/ozonmp/week-4-workshop/category-service/internal/app/category-service"
+	"github.com/ozonmp/week-4-workshop/category-service/internal/config"
+	mwserver "github.com/ozonmp/week-4-workshop/category-service/internal/pkg/mw/server"
+	"github.com/ozonmp/week-4-workshop/category-service/internal/service/category"
+	desc "github.com/ozonmp/week-4-workshop/category-service/pkg/category-service"
 )
 
 type GrpcServer struct {

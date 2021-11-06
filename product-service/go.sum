@@ -228,6 +228,8 @@ github.com/opentracing/opentracing-go v1.2.0 h1:uEJPy/1a5RIPAJ0Ov+OIO8OxWu77jEv+
 github.com/opentracing/opentracing-go v1.2.0/go.mod h1:GxEUsuufX4nBwe+T+Wl9TAgYrxe9dPLANfrWvHYVTgc=
 github.com/ozonmp/week-4-workshop/category-service/pkg/category-service v0.0.0-20211030111829-b04e0635a5aa h1:PneIOYx8rZVR0+H3WeSdjRCqoW8ACFXIN9UKeFj/Q2A=
 github.com/ozonmp/week-4-workshop/category-service/pkg/category-service v0.0.0-20211030111829-b04e0635a5aa/go.mod h1:bVnptpGTLiXIalm0Sy+ev8BSvi/fCWFedApV1eBY9ac=
+github.com/ozonmp/week-4-workshop/category-service/pkg/category-service v0.0.0-20211106062202-6ef7f265314c h1:E+ZvXEpkJSQSLT9cucuNKDMqp+Owh3H9reo3FcRJ2ac=
+github.com/ozonmp/week-4-workshop/category-service/pkg/category-service v0.0.0-20211106062202-6ef7f265314c/go.mod h1:aO0PMCsh3CB/B/GjqhAkalaUfjrvasK8w5Q+yxjoqJY=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=

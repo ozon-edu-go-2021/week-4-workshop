@@ -16,7 +16,6 @@ require (
 require (
 	github.com/envoyproxy/protoc-gen-validate v0.6.2
 	github.com/golang/mock v1.6.0
-	github.com/ozonmp/week-4-workshop/category-service/pkg/category-service v0.0.0-20211030111829-b04e0635a5aa
 	github.com/stretchr/testify v1.7.0
 	google.golang.org/genproto v0.0.0-20211029142109-e255c875f7c7
 	google.golang.org/protobuf v1.27.1
@@ -34,6 +33,7 @@ require (
 	github.com/jackc/pgtype v1.8.1 // indirect
 	github.com/kr/text v0.2.0 // indirect
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
+	github.com/ozonmp/week-4-workshop/category-service/pkg/category-service v0.0.0-20211106062202-6ef7f265314c // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	golang.org/x/crypto v0.0.0-20210711020723-a769d52b0f97 // indirect
 	golang.org/x/net v0.0.0-20210813160813-60bc85c4be6d // indirect

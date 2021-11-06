@@ -27,6 +27,7 @@ ARG GITHUB_PATH=github.com/ozonmp/week-4-workshop/product-service
 
 COPY --from=builder /home/${GITHUB_PATH}/bin/grpc-server .
 COPY --from=builder /home/${GITHUB_PATH}/config.yml .
+COPY --from=builder /home/${GITHUB_PATH}/swagger ./swagger
 COPY --from=builder /home/${GITHUB_PATH}/migrations/ ./migrations
 
 RUN chown root:root grpc-server

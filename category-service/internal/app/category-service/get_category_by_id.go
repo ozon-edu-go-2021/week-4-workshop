@@ -4,11 +4,9 @@ import (
 	"context"
 
 	"github.com/pkg/errors"
-	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/ozonmp/week-4-workshop/category-service/internal/pkg/ctxutil"
 	internal_errors "github.com/ozonmp/week-4-workshop/category-service/internal/pkg/errors"
 	"github.com/ozonmp/week-4-workshop/category-service/internal/service/category"
 	category_service "github.com/ozonmp/week-4-workshop/category-service/pkg/category-service"
@@ -27,14 +25,6 @@ func (i *Implementation) GetCategoryById(ctx context.Context, req *category_serv
 		}
 		return nil, errors.Wrap(err, "categoryService.GetCategoryByID")
 	}
-
-	detachCtx := ctxutil.Detach(ctx)
-	go func() {
-		err := i.taskService.ExecTask(detachCtx)
-		if err != nil {
-			log.Error().Err(err).Msg("")
-		}
-	}()
 
 	return makeGetCategoryByIdResponse(cat), nil
 }

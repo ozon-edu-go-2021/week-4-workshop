@@ -51,7 +51,7 @@ func main() {
 	categoryService := category.New(categoryRepository)
 
 	taskRepository := task_repository.New(db)
-	taskService := task.New(taskRepository)
+	taskService := task.New(taskRepository, db)
 
 	if err := server.NewGrpcServer(
 		categoryService,

@@ -3,7 +3,7 @@ package product_service
 import (
 	"context"
 
-	category_service "github.com/ozonmp/week-3-workshop/category-service/pkg/category-service"
+	category_service "github.com/ozonmp/week-4-workshop/category-service/pkg/category-service"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

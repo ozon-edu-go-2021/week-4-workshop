@@ -3,8 +3,8 @@ package product_service
 import (
 	"context"
 
-	product_service "github.com/ozonmp/week-3-workshop/product-service/internal/service/product"
-	desc "github.com/ozonmp/week-3-workshop/product-service/pkg/product-service"
+	product_service "github.com/ozonmp/week-4-workshop/product-service/internal/service/product"
+	desc "github.com/ozonmp/week-4-workshop/product-service/pkg/product-service"
 	"google.golang.org/genproto/googleapis/rpc/errdetails"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

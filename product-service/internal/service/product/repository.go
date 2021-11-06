@@ -1,19 +1,30 @@
 package product_service
 
-import "context"
+import (
+	"context"
+
+	"github.com/jmoiron/sqlx"
+
+	sq "github.com/Masterminds/squirrel"
+)
 
 var nextID int64 = 1
 
-type repository struct{}
+type repository struct{
+	DB *sqlx.DB
+}
 
-func newRepo() IRepository {
-	return repository{}
+func newRepo(db *sqlx.DB) IRepository {
+	return repository{
+		DB: db,
+	}
 }
 
 func (r repository) SaveProduct(ctx context.Context, product *Product) error {
-	product.ID = nextID
+	query := sq.Insert("products").PlaceholderFormat(sq.Dollar).Columns("name", "category_id").Values(
+		product.Name, product.CategoryID).RunWith(r.DB)
 
-	nextID++
+	_, err := query.ExecContext(ctx)
 
-	return nil
+	return err
 }

@@ -4,12 +4,13 @@ import (
 	"context"
 	"errors"
 
-	category_service "github.com/ozonmp/week-3-workshop/category-service/pkg/category-service"
+	"github.com/jmoiron/sqlx"
+	category_service "github.com/ozonmp/week-4-workshop/category-service/pkg/category-service"
 )
 
 var ErrWrongCategory = errors.New("category does not exist")
 
-//go:generate mockgen -package=product_service -destination=service_mocks_test.go -self_package=github.com/ozonmp/week-3-workshop/product-service/internal/service/product . IRepository,ICategoryClient
+//go:generate mockgen -package=product_service -destination=service_mocks_test.go -self_package=github.com/ozonmp/week-4-workshop/product-service/internal/service/product . IRepository,ICategoryClient
 
 type IRepository interface {
 	SaveProduct(ctx context.Context, product *Product) error
@@ -24,9 +25,9 @@ type Service struct {
 	client ICategoryClient
 }
 
-func NewService(grpcClient category_service.CategoryServiceClient) *Service {
+func NewService(grpcClient category_service.CategoryServiceClient, db *sqlx.DB) *Service {
 	return &Service{
-		repo:   newRepo(),
+		repo:   newRepo(db),
 		client: newClient(grpcClient),
 	}
 }

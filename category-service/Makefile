@@ -45,13 +45,14 @@ deps:
 	go install github.com/bufbuild/buf/cmd/buf@v0.56.0
 	go install github.com/bufbuild/buf/cmd/protoc-gen-buf-breaking@v0.56.0
 	go install github.com/bufbuild/buf/cmd/protoc-gen-buf-lint@v0.56.0
+	go mod download
 
 .PHONY: build
 build: generate .build
 
 .PHONY: .build
 .build:
-	go mod download && CGO_ENABLED=0  go build \
+	CGO_ENABLED=0  go build \
 		-tags='no_mysql no_sqlite3' \
 		-ldflags=" \
 			-X 'github.com/$(SERVICE_PATH)/internal/config.version=$(VERSION)' \

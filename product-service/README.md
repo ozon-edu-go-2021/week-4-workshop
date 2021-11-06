@@ -1,4 +1,4 @@
-# week-3-workshop/product-service
+# week-4-workshop/product-service
 
 Это максимально легковесный шаблон для gRPC.
 

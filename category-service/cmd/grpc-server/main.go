@@ -1,19 +1,22 @@
 package main
 
 import (
+	"context"
 	"flag"
+	"time"
 
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 
-	_ "github.com/jackc/pgx/v4"
 	_ "github.com/jackc/pgx/v4/stdlib"
-	_ "github.com/lib/pq"
 
 	"github.com/ozonmp/week-4-workshop/category-service/internal/config"
 	"github.com/ozonmp/week-4-workshop/category-service/internal/server"
 	"github.com/ozonmp/week-4-workshop/category-service/internal/service/category"
 	cat_repository "github.com/ozonmp/week-4-workshop/category-service/internal/service/category/repository"
+	"github.com/ozonmp/week-4-workshop/category-service/internal/service/database"
+	"github.com/ozonmp/week-4-workshop/category-service/internal/service/task"
+	task_repository "github.com/ozonmp/week-4-workshop/category-service/internal/service/task/repository"
 )
 
 func main() {
@@ -36,11 +39,23 @@ func main() {
 		zerolog.SetGlobalLevel(zerolog.DebugLevel)
 	}
 
-	categoryRepository := cat_repository.New()
+	initCtx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+
+	db, err := database.New(initCtx, cfg.Database.DSN)
+	if err != nil {
+		log.Fatal().Err(err).Msg("Failed init configuration")
+	}
+
+	categoryRepository := cat_repository.New(db)
 	categoryService := category.New(categoryRepository)
+
+	taskRepository := task_repository.New(db)
+	taskService := task.New(taskRepository)
 
 	if err := server.NewGrpcServer(
 		categoryService,
+		taskService,
 	).Start(&cfg); err != nil {
 		log.Error().Err(err).Msg("Failed creating gRPC server")
 

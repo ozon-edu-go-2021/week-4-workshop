@@ -25,16 +25,22 @@ import (
 	"github.com/ozonmp/week-4-workshop/category-service/internal/config"
 	mwserver "github.com/ozonmp/week-4-workshop/category-service/internal/pkg/mw/server"
 	"github.com/ozonmp/week-4-workshop/category-service/internal/service/category"
+	"github.com/ozonmp/week-4-workshop/category-service/internal/service/task"
 	desc "github.com/ozonmp/week-4-workshop/category-service/pkg/category-service"
 )
 
 type GrpcServer struct {
 	categoryService category.Service
+	taskService     task.Service
 }
 
-func NewGrpcServer(categoryService category.Service) *GrpcServer {
+func NewGrpcServer(
+	categoryService category.Service,
+	taskService task.Service,
+) *GrpcServer {
 	return &GrpcServer{
 		categoryService: categoryService,
+		taskService:     taskService,
 	}
 }
 
@@ -91,6 +97,7 @@ func (s *GrpcServer) Start(cfg *config.Config) error {
 
 	desc.RegisterCategoryServiceServer(grpcServer, api.NewCategoryService(
 		s.categoryService,
+		s.taskService,
 	))
 
 	go func() {

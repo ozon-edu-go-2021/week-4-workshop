@@ -54,12 +54,17 @@ type Project struct {
 	CommitHash  string
 }
 
+type Database struct {
+	DSN string `yaml:"dsn"`
+}
+
 // Config - contains all configuration parameters in config package.
 type Config struct {
-	Project Project `yaml:"project"`
-	Grpc    Grpc    `yaml:"grpc"`
-	Gateway Gateway `yaml:"gateway"`
-	Swagger Swagger `yaml:"swagger"`
+	Project  Project  `yaml:"project"`
+	Grpc     Grpc     `yaml:"grpc"`
+	Gateway  Gateway  `yaml:"gateway"`
+	Swagger  Swagger  `yaml:"swagger"`
+	Database Database `yaml:"database"`
 }
 
 // ReadConfigYML - read configurations from file and init instance Config.

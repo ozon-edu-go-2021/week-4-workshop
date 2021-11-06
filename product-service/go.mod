@@ -22,6 +22,7 @@ require (
 )
 
 require (
+	github.com/DATA-DOG/go-sqlmock v1.5.0 // indirect
 	github.com/Masterminds/squirrel v1.5.1
 	github.com/jmoiron/sqlx v1.3.4
 	github.com/kr/text v0.2.0 // indirect

@@ -1,13 +1,13 @@
 package main
 
 import (
-	"database/sql"
 	"embed"
 
-	_ "github.com/jackc/pgx/v4/stdlib"
 	"github.com/ozonmp/week-4-workshop/product-service/internal/config"
-	"github.com/pressly/goose/v3"
+	"github.com/ozonmp/week-4-workshop/product-service/internal/pkg/db"
 
+	_ "github.com/jackc/pgx/v4/stdlib"
+	"github.com/pressly/goose/v3"
 	"github.com/rs/zerolog/log"
 )
 
@@ -20,17 +20,19 @@ func main() {
 	}
 	cfg := config.GetConfigInstance()
 
-	db, err := sql.Open("pgx", cfg.DB.DSN)
+	conn, err := db.ConnectDB(&cfg.DB)
 	if err != nil {
-		log.Fatal().Err(err).Msg("Failed SQL open")
+		log.Fatal().Err(err).Msg("sql.Open() error")
 	}
-	defer db.Close()
+	defer conn.Close()
 
 	goose.SetBaseFS(embedMigrations)
 
 	const cmd = "up"
-	err = goose.Run(cmd, db, "migrations")
+
+	err = goose.Run(cmd, conn.DB, "migrations")
 	if err != nil {
-		log.Fatal().Err(err).Msg("Goose error")
+		log.Fatal().Err(err).Msg("goose.Status() error")
 	}
+
 }

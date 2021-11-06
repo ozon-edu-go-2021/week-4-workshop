@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 
+	"github.com/jmoiron/sqlx"
 	category_service "github.com/ozonmp/week-4-workshop/category-service/pkg/category-service"
 )
 
@@ -24,9 +25,9 @@ type Service struct {
 	client ICategoryClient
 }
 
-func NewService(grpcClient category_service.CategoryServiceClient) *Service {
+func NewService(grpcClient category_service.CategoryServiceClient, db *sqlx.DB) *Service {
 	return &Service{
-		repo:   newRepo(),
+		repo:   newRepo(db),
 		client: newClient(grpcClient),
 	}
 }

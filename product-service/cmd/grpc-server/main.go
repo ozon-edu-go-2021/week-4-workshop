@@ -18,6 +18,8 @@ import (
 	mwclient "github.com/ozonmp/week-4-workshop/product-service/internal/pkg/mw/client"
 	"github.com/ozonmp/week-4-workshop/product-service/internal/server"
 	product_service "github.com/ozonmp/week-4-workshop/product-service/internal/service/product"
+
+	db "github.com/ozonmp/week-4-workshop/product-service/internal/pkg/db"
 )
 
 func main() {
@@ -50,9 +52,14 @@ func main() {
 		log.Error().Err(err).Msg("failed to create client")
 	}
 
+	db, err := db.ConnectDB(&cfg.DB)
+	if err != nil {
+		log.Fatal().Err(err).Msg("Failed init db connection")
+	}
+
 	categoryServiceClient := grpc_category_service.NewCategoryServiceClient(categoryServiceConn)
 
-	productService := product_service.NewService(categoryServiceClient)
+	productService := product_service.NewService(categoryServiceClient, db)
 
 	if err := server.NewGrpcServer(productService).Start(&cfg); err != nil {
 		log.Error().Err(err).Msg("Failed creating gRPC server")

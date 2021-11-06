@@ -20,7 +20,6 @@ import (
 	"github.com/ozonmp/week-4-workshop/product-service/internal/server"
 	product_service "github.com/ozonmp/week-4-workshop/product-service/internal/service/product"
 
-	db "github.com/ozonmp/week-4-workshop/product-service/internal/pkg/db"
 )
 
 func main() {

@@ -33,6 +33,75 @@ var (
 	_ = anypb.Any{}
 )
 
+// Validate checks the field values on ProductAttribute with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *ProductAttribute) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Id
+
+	// no validation rules for Value
+
+	return nil
+}
+
+// ProductAttributeValidationError is the validation error returned by
+// ProductAttribute.Validate if the designated constraints aren't met.
+type ProductAttributeValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProductAttributeValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProductAttributeValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProductAttributeValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProductAttributeValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProductAttributeValidationError) ErrorName() string { return "ProductAttributeValidationError" }
+
+// Error satisfies the builtin error interface
+func (e ProductAttributeValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProductAttribute.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProductAttributeValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProductAttributeValidationError{}
+
 // Validate checks the field values on Product with the rules defined in the
 // proto definition for this message. If any rules are violated, an error is returned.
 func (m *Product) Validate() error {
@@ -45,6 +114,21 @@ func (m *Product) Validate() error {
 	// no validation rules for Name
 
 	// no validation rules for CategoryId
+
+	for idx, item := range m.GetAttributes() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ProductValidationError{
+					field:  fmt.Sprintf("Attributes[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
 
 	return nil
 }
@@ -123,6 +207,21 @@ func (m *CreateProductRequest) Validate() error {
 			field:  "CategoryId",
 			reason: "value must be greater than 0",
 		}
+	}
+
+	for idx, item := range m.GetAttributes() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return CreateProductRequestValidationError{
+					field:  fmt.Sprintf("Attributes[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
 	}
 
 	return nil

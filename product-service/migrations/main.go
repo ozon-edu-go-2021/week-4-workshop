@@ -7,7 +7,6 @@ import (
 	"github.com/ozonmp/week-4-workshop/product-service/internal/pkg/db"
 
 	_ "github.com/jackc/pgx/v4/stdlib"
-	"github.com/ozonmp/week-4-workshop/product-service/internal/config"
 	"github.com/pressly/goose/v3"
 	"github.com/rs/zerolog/log"
 )

@@ -7,7 +7,6 @@ import (
 	"github.com/jmoiron/sqlx"
 	category_service "github.com/ozonmp/week-4-workshop/category-service/pkg/category-service"
 
-	"github.com/jmoiron/sqlx"
 )
 
 var ErrWrongCategory = errors.New("category does not exist")
@@ -40,6 +39,7 @@ func (s *Service) CreateProduct(
 	ctx context.Context,
 	name string,
 	categoryID int64,
+	attributes []ProductAttribute,
 ) (*Product, error) {
 	exists, err := s.client.IsCategoryExists(ctx, categoryID)
 	if err != nil {
@@ -53,6 +53,7 @@ func (s *Service) CreateProduct(
 	product := &Product{
 		Name:       name,
 		CategoryID: categoryID,
+		Attributes: attributes,
 	}
 
 	if id, err := s.repo.SaveProduct(ctx, product); err != nil {

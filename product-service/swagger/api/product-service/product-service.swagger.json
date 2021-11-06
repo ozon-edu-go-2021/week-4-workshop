@@ -153,6 +153,12 @@
         "categoryId": {
           "type": "string",
           "format": "int64"
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ProductAttribute"
+          }
         }
       }
     },
@@ -215,6 +221,24 @@
         "categoryId": {
           "type": "string",
           "format": "int64"
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ProductAttribute"
+          }
+        }
+      }
+    },
+    "v1ProductAttribute": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "value": {
+          "type": "string"
         }
       }
     }

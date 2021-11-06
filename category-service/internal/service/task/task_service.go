@@ -2,47 +2,52 @@ package task
 
 import (
 	"context"
-	"log"
-	"sync"
 	"time"
 
+	"github.com/jmoiron/sqlx"
 	"github.com/pkg/errors"
+
+	"github.com/ozonmp/week-4-workshop/category-service/internal/service/database"
 )
 
 type Service struct {
 	repository RepositoryInterface
-
-	mutex         *sync.Mutex
-	uniqueTaskIDs map[uint64]struct{}
+	db         *sqlx.DB
 }
 
 type RepositoryInterface interface {
-	FindNonStartedTask(context.Context) (*Task, error)
+	FindNonStartedTask(context.Context, *sqlx.Tx) (*Task, error)
+	SaveTask(context.Context, *Task, *sqlx.Tx) error
 }
 
-func New(repository RepositoryInterface) Service {
+func New(repository RepositoryInterface, db *sqlx.DB) Service {
 	return Service{
 		repository: repository,
-
-		mutex:         new(sync.Mutex),
-		uniqueTaskIDs: make(map[uint64]struct{}),
+		db:         db,
 	}
 }
 
 func (s Service) ExecTask(ctx context.Context) error {
-	task, err := s.repository.FindNonStartedTask(ctx)
-	if err != nil {
-		return errors.Wrap(err, "repository.FindNonStartedTask()")
+	txErr := database.WithTx(ctx, s.db, func(ctx context.Context, tx *sqlx.Tx) error {
+		task, err := s.repository.FindNonStartedTask(ctx, tx)
+		if err != nil {
+			return errors.Wrap(err, "repository.FindNonStartedTask()")
+		}
+
+		now := time.Now()
+		task.StartedAt = &now
+
+		err = s.repository.SaveTask(ctx, task, tx)
+		if err != nil {
+			return errors.Wrap(err, "repository.SaveTask()")
+		}
+		return nil
+	})
+	if txErr != nil {
+		return txErr
 	}
 
-	s.mutex.Lock()
-	if _, ok := s.uniqueTaskIDs[task.ID]; ok {
-		log.Fatal("Дубликат")
-	}
-	s.uniqueTaskIDs[task.ID] = struct{}{}
-	s.mutex.Unlock()
-
-	time.Sleep(1 * time.Second)
+	time.Sleep(time.Second) // Имитация работы
 
 	return nil
 }

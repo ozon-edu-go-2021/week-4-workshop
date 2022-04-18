@@ -322,8 +322,8 @@ github.com/opentracing/opentracing-go v1.1.0/go.mod h1:UkNAQd3GIcIGf0SeVgPpRdFSt
 github.com/opentracing/opentracing-go v1.2.0 h1:uEJPy/1a5RIPAJ0Ov+OIO8OxWu77jEv+1B0VhjKrZUs=
 github.com/opentracing/opentracing-go v1.2.0/go.mod h1:GxEUsuufX4nBwe+T+Wl9TAgYrxe9dPLANfrWvHYVTgc=
 github.com/ory/dockertest/v3 v3.8.0/go.mod h1:9zPATATlWQru+ynXP+DytBQrsXV7Tmlx7K86H6fQaDo=
-github.com/ozonmp/week-4-workshop/category-service/pkg/category-service v0.0.0-20211106062202-6ef7f265314c h1:E+ZvXEpkJSQSLT9cucuNKDMqp+Owh3H9reo3FcRJ2ac=
-github.com/ozonmp/week-4-workshop/category-service/pkg/category-service v0.0.0-20211106062202-6ef7f265314c/go.mod h1:aO0PMCsh3CB/B/GjqhAkalaUfjrvasK8w5Q+yxjoqJY=
+github.com/ozon-edu-go-2021/week-4-workshop/category-service/pkg/category-service v0.0.0-20211106062202-6ef7f265314c h1:E+ZvXEpkJSQSLT9cucuNKDMqp+Owh3H9reo3FcRJ2ac=
+github.com/ozon-edu-go-2021/week-4-workshop/category-service/pkg/category-service v0.0.0-20211106062202-6ef7f265314c/go.mod h1:aO0PMCsh3CB/B/GjqhAkalaUfjrvasK8w5Q+yxjoqJY=
 github.com/pelletier/go-toml v1.2.0/go.mod h1:5z9KED0ma1S8pY6P1sdut58dfprrGBbd/94hg7ilaic=
 github.com/pierrec/lz4 v2.0.5+incompatible/go.mod h1:pdkljMzZIN41W+lC3N2tnIh5sFi+IEE17M5jbnwPHcY=
 github.com/pkg/errors v0.8.0/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=

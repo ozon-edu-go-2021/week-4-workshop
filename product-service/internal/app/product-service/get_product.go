@@ -4,7 +4,7 @@ import (
 	"context"
 
 
-	desc "github.com/ozonmp/week-4-workshop/product-service/pkg/product-service"
+	desc "github.com/ozon-edu-go-2021/week-4-workshop/product-service/pkg/product-service"
 )
 
 

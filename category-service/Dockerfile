@@ -3,7 +3,7 @@
 FROM golang:1.16-alpine AS builder
 RUN apk add --update make git protoc protobuf protobuf-dev curl gcc musl-dev
 
-ARG GITHUB_PATH=github.com/ozonmp/week-4-workshop/category-service
+ARG GITHUB_PATH=github.com/ozon-edu-go-2021/week-4-workshop/category-service
 
 COPY Makefile /home/${GITHUB_PATH}/Makefile
 COPY go.mod /home/${GITHUB_PATH}/go.mod
@@ -23,7 +23,7 @@ LABEL org.opencontainers.image.source https://${GITHUB_PATH}
 RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 
-ARG GITHUB_PATH=github.com/ozonmp/week-4-workshop/category-service
+ARG GITHUB_PATH=github.com/ozon-edu-go-2021/week-4-workshop/category-service
 
 COPY --from=builder /home/${GITHUB_PATH}/bin/grpc-server .
 COPY --from=builder /home/${GITHUB_PATH}/config.yml .

@@ -3,8 +3,8 @@ package main
 import (
 	"embed"
 
-	"github.com/ozonmp/week-4-workshop/product-service/internal/config"
-	"github.com/ozonmp/week-4-workshop/product-service/internal/pkg/db"
+	"github.com/ozon-edu-go-2021/week-4-workshop/product-service/internal/config"
+	"github.com/ozon-edu-go-2021/week-4-workshop/product-service/internal/pkg/db"
 
 	_ "github.com/jackc/pgx/v4/stdlib"
 	"github.com/pressly/goose/v3"

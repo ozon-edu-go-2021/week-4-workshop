@@ -1,4 +1,4 @@
-module github.com/ozonmp/week-4-workshop/category-service/pkg/category-service
+module github.com/ozon-edu-go-2021/week-4-workshop/category-service/pkg/category-service
 
 go 1.17
 

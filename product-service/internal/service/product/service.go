@@ -5,13 +5,13 @@ import (
 	"errors"
 
 	"github.com/jmoiron/sqlx"
-	category_service "github.com/ozonmp/week-4-workshop/category-service/pkg/category-service"
+	category_service "github.com/ozon-edu-go-2021/week-4-workshop/category-service/pkg/category-service"
 
 )
 
 var ErrWrongCategory = errors.New("category does not exist")
 
-//go:generate mockgen -package=product_service -destination=service_mocks_test.go -self_package=github.com/ozonmp/week-4-workshop/product-service/internal/service/product . IRepository,ICategoryClient
+//go:generate mockgen -package=product_service -destination=service_mocks_test.go -self_package=github.com/ozon-edu-go-2021/week-4-workshop/product-service/internal/service/product . IRepository,ICategoryClient
 
 type IRepository interface {
 	SaveProduct(ctx context.Context, product *Product) (int64, error)

@@ -6,8 +6,8 @@ import (
 	"github.com/jmoiron/sqlx"
 	"github.com/pkg/errors"
 
-	"github.com/ozonmp/week-4-workshop/category-service/internal/service/category"
-	"github.com/ozonmp/week-4-workshop/category-service/internal/service/database"
+	"github.com/ozon-edu-go-2021/week-4-workshop/category-service/internal/service/category"
+	"github.com/ozon-edu-go-2021/week-4-workshop/category-service/internal/service/database"
 )
 
 type Repository struct {

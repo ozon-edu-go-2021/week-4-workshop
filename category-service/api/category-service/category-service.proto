@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package ozonmp.week_4_workshop.category_service.category_service.v1;
+package ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1;
 
 import "google/api/annotations.proto";
 import "validate/validate.proto";

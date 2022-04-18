@@ -1,7 +1,7 @@
 #!/bin/sh
 
 GRPC_HOST="localhost:6002"
-GRPC_METHOD="ozonmp.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById"
+GRPC_METHOD="ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById"
 
 payload=$(
   cat <<EOF

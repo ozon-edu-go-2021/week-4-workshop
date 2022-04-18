@@ -562,26 +562,26 @@ func file_api_product_service_product_service_proto_rawDescGZIP() []byte {
 
 var file_api_product_service_product_service_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_api_product_service_product_service_proto_goTypes = []interface{}{
-	(*ProductAttribute)(nil),      // 0: ozonmp.week_3_workshop.product_service.product_service.v1.ProductAttribute
-	(*Product)(nil),               // 1: ozonmp.week_3_workshop.product_service.product_service.v1.Product
-	(*CreateProductRequest)(nil),  // 2: ozonmp.week_3_workshop.product_service.product_service.v1.CreateProductRequest
-	(*CreateProductResponse)(nil), // 3: ozonmp.week_3_workshop.product_service.product_service.v1.CreateProductResponse
-	(*DeleteProductRequest)(nil),  // 4: ozonmp.week_3_workshop.product_service.product_service.v1.DeleteProductRequest
-	(*DeleteProductResponse)(nil), // 5: ozonmp.week_3_workshop.product_service.product_service.v1.DeleteProductResponse
-	(*GetProductRequest)(nil),     // 6: ozonmp.week_3_workshop.product_service.product_service.v1.GetProductRequest
-	(*GetProductResponse)(nil),    // 7: ozonmp.week_3_workshop.product_service.product_service.v1.GetProductResponse
+	(*ProductAttribute)(nil),      // 0: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.ProductAttribute
+	(*Product)(nil),               // 1: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.Product
+	(*CreateProductRequest)(nil),  // 2: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.CreateProductRequest
+	(*CreateProductResponse)(nil), // 3: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.CreateProductResponse
+	(*DeleteProductRequest)(nil),  // 4: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.DeleteProductRequest
+	(*DeleteProductResponse)(nil), // 5: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.DeleteProductResponse
+	(*GetProductRequest)(nil),     // 6: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.GetProductRequest
+	(*GetProductResponse)(nil),    // 7: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.GetProductResponse
 }
 var file_api_product_service_product_service_proto_depIdxs = []int32{
-	0, // 0: ozonmp.week_3_workshop.product_service.product_service.v1.Product.attributes:type_name -> ozonmp.week_3_workshop.product_service.product_service.v1.ProductAttribute
-	0, // 1: ozonmp.week_3_workshop.product_service.product_service.v1.CreateProductRequest.attributes:type_name -> ozonmp.week_3_workshop.product_service.product_service.v1.ProductAttribute
-	1, // 2: ozonmp.week_3_workshop.product_service.product_service.v1.CreateProductResponse.result:type_name -> ozonmp.week_3_workshop.product_service.product_service.v1.Product
-	1, // 3: ozonmp.week_3_workshop.product_service.product_service.v1.GetProductResponse.products:type_name -> ozonmp.week_3_workshop.product_service.product_service.v1.Product
-	2, // 4: ozonmp.week_3_workshop.product_service.product_service.v1.ProductService.CreateProduct:input_type -> ozonmp.week_3_workshop.product_service.product_service.v1.CreateProductRequest
-	4, // 5: ozonmp.week_3_workshop.product_service.product_service.v1.ProductService.DeleteProduct:input_type -> ozonmp.week_3_workshop.product_service.product_service.v1.DeleteProductRequest
-	6, // 6: ozonmp.week_3_workshop.product_service.product_service.v1.ProductService.GetProduct:input_type -> ozonmp.week_3_workshop.product_service.product_service.v1.GetProductRequest
-	3, // 7: ozonmp.week_3_workshop.product_service.product_service.v1.ProductService.CreateProduct:output_type -> ozonmp.week_3_workshop.product_service.product_service.v1.CreateProductResponse
-	5, // 8: ozonmp.week_3_workshop.product_service.product_service.v1.ProductService.DeleteProduct:output_type -> ozonmp.week_3_workshop.product_service.product_service.v1.DeleteProductResponse
-	7, // 9: ozonmp.week_3_workshop.product_service.product_service.v1.ProductService.GetProduct:output_type -> ozonmp.week_3_workshop.product_service.product_service.v1.GetProductResponse
+	0, // 0: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.Product.attributes:type_name -> ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.ProductAttribute
+	0, // 1: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.CreateProductRequest.attributes:type_name -> ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.ProductAttribute
+	1, // 2: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.CreateProductResponse.result:type_name -> ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.Product
+	1, // 3: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.GetProductResponse.products:type_name -> ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.Product
+	2, // 4: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.ProductService.CreateProduct:input_type -> ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.CreateProductRequest
+	4, // 5: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.ProductService.DeleteProduct:input_type -> ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.DeleteProductRequest
+	6, // 6: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.ProductService.GetProduct:input_type -> ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.GetProductRequest
+	3, // 7: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.ProductService.CreateProduct:output_type -> ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.CreateProductResponse
+	5, // 8: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.ProductService.DeleteProduct:output_type -> ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.DeleteProductResponse
+	7, // 9: ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.ProductService.GetProduct:output_type -> ozon-edu-go-2021.week_3_workshop.product_service.product_service.v1.GetProductResponse
 	7, // [7:10] is the sub-list for method output_type
 	4, // [4:7] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name

@@ -16,7 +16,7 @@
     "application/json"
   ],
   "paths": {
-    "/ozonmp.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById": {
+    "/ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById": {
       "post": {
         "operationId": "CategoryService_GetCategoryById",
         "responses": {

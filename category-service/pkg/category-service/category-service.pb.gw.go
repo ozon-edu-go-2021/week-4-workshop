@@ -77,7 +77,7 @@ func RegisterCategoryServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/ozonmp.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById", runtime.WithHTTPPathPattern("/ozonmp.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById"))
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById", runtime.WithHTTPPathPattern("/ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -139,7 +139,7 @@ func RegisterCategoryServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/ozonmp.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById", runtime.WithHTTPPathPattern("/ozonmp.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById"))
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById", runtime.WithHTTPPathPattern("/ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -159,7 +159,7 @@ func RegisterCategoryServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 }
 
 var (
-	pattern_CategoryService_GetCategoryById_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"ozonmp.week_4_workshop.category_service.category_service.v1.CategoryService", "GetCategoryById"}, ""))
+	pattern_CategoryService_GetCategoryById_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.CategoryService", "GetCategoryById"}, ""))
 )
 
 var (

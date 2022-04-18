@@ -4,9 +4,9 @@ import (
 	"context"
 	"log"
 
-	"github.com/ozonmp/week-4-workshop/category-service/internal/config"
-	"github.com/ozonmp/week-4-workshop/category-service/internal/service/database"
-	"github.com/ozonmp/week-4-workshop/category-service/migrations"
+	"github.com/ozon-edu-go-2021/week-4-workshop/category-service/internal/config"
+	"github.com/ozon-edu-go-2021/week-4-workshop/category-service/internal/service/database"
+	"github.com/ozon-edu-go-2021/week-4-workshop/category-service/migrations"
 
 	_ "github.com/jackc/pgx/v4/stdlib"
 	"github.com/pressly/goose/v3"

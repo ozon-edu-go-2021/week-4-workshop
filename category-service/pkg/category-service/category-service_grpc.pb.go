@@ -31,7 +31,7 @@ func NewCategoryServiceClient(cc grpc.ClientConnInterface) CategoryServiceClient
 
 func (c *categoryServiceClient) GetCategoryById(ctx context.Context, in *GetCategoryByIdRequest, opts ...grpc.CallOption) (*GetCategoryByIdResponse, error) {
 	out := new(GetCategoryByIdResponse)
-	err := c.cc.Invoke(ctx, "/ozonmp.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +76,7 @@ func _CategoryService_GetCategoryById_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/ozonmp.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById",
+		FullMethod: "/ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.CategoryService/GetCategoryById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CategoryServiceServer).GetCategoryById(ctx, req.(*GetCategoryByIdRequest))
@@ -88,7 +88,7 @@ func _CategoryService_GetCategoryById_Handler(srv interface{}, ctx context.Conte
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var CategoryService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ozonmp.week_4_workshop.category_service.category_service.v1.CategoryService",
+	ServiceName: "ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.CategoryService",
 	HandlerType: (*CategoryServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

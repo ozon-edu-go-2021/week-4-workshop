@@ -6,7 +6,7 @@ endif
 export GO111MODULE=on
 
 SERVICE_NAME=product-service
-SERVICE_PATH=ozonmp/week-4-workshop/product-service
+SERVICE_PATH=ozon-edu-go-2021/week-4-workshop/product-service
 
 OS_NAME=$(shell uname -s)
 OS_ARCH=$(shell uname -m)

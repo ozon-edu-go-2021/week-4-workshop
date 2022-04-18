@@ -4,7 +4,7 @@ import (
 	"context"
 	"flag"
 
-	"github.com/ozonmp/week-4-workshop/product-service/internal/pkg/db"
+	"github.com/ozon-edu-go-2021/week-4-workshop/product-service/internal/pkg/db"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
@@ -13,12 +13,12 @@ import (
 	_ "github.com/jackc/pgx/v4/stdlib"
 	_ "github.com/lib/pq"
 
-	grpc_category_service "github.com/ozonmp/week-4-workshop/category-service/pkg/category-service"
+	grpc_category_service "github.com/ozon-edu-go-2021/week-4-workshop/category-service/pkg/category-service"
 
-	"github.com/ozonmp/week-4-workshop/product-service/internal/config"
-	mwclient "github.com/ozonmp/week-4-workshop/product-service/internal/pkg/mw/client"
-	"github.com/ozonmp/week-4-workshop/product-service/internal/server"
-	product_service "github.com/ozonmp/week-4-workshop/product-service/internal/service/product"
+	"github.com/ozon-edu-go-2021/week-4-workshop/product-service/internal/config"
+	mwclient "github.com/ozon-edu-go-2021/week-4-workshop/product-service/internal/pkg/mw/client"
+	"github.com/ozon-edu-go-2021/week-4-workshop/product-service/internal/server"
+	product_service "github.com/ozon-edu-go-2021/week-4-workshop/product-service/internal/service/product"
 
 )
 

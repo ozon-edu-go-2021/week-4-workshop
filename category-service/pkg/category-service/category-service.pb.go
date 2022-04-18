@@ -232,14 +232,14 @@ func file_api_category_service_category_service_proto_rawDescGZIP() []byte {
 
 var file_api_category_service_category_service_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_api_category_service_category_service_proto_goTypes = []interface{}{
-	(*Category)(nil),                // 0: ozonmp.week_4_workshop.category_service.category_service.v1.Category
-	(*GetCategoryByIdRequest)(nil),  // 1: ozonmp.week_4_workshop.category_service.category_service.v1.GetCategoryByIdRequest
-	(*GetCategoryByIdResponse)(nil), // 2: ozonmp.week_4_workshop.category_service.category_service.v1.GetCategoryByIdResponse
+	(*Category)(nil),                // 0: ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.Category
+	(*GetCategoryByIdRequest)(nil),  // 1: ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.GetCategoryByIdRequest
+	(*GetCategoryByIdResponse)(nil), // 2: ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.GetCategoryByIdResponse
 }
 var file_api_category_service_category_service_proto_depIdxs = []int32{
-	0, // 0: ozonmp.week_4_workshop.category_service.category_service.v1.GetCategoryByIdResponse.category:type_name -> ozonmp.week_4_workshop.category_service.category_service.v1.Category
-	1, // 1: ozonmp.week_4_workshop.category_service.category_service.v1.CategoryService.GetCategoryById:input_type -> ozonmp.week_4_workshop.category_service.category_service.v1.GetCategoryByIdRequest
-	2, // 2: ozonmp.week_4_workshop.category_service.category_service.v1.CategoryService.GetCategoryById:output_type -> ozonmp.week_4_workshop.category_service.category_service.v1.GetCategoryByIdResponse
+	0, // 0: ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.GetCategoryByIdResponse.category:type_name -> ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.Category
+	1, // 1: ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.CategoryService.GetCategoryById:input_type -> ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.GetCategoryByIdRequest
+	2, // 2: ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.CategoryService.GetCategoryById:output_type -> ozon-edu-go-2021.week_4_workshop.category_service.category_service.v1.GetCategoryByIdResponse
 	2, // [2:3] is the sub-list for method output_type
 	1, // [1:2] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
